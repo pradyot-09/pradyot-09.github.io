@@ -4,12 +4,12 @@ title: About
 permalink: /about/
 ---
 
-Some information about you!
+Just a Programming Enthusiast. :) . Nothing more to know.
 
 ### More Information
 
-A place to include any other types of information that you'd like to include about yourself.
+Absolutely no need of this.
 
 ### Contact me
 
-[email@domain.com](mailto:email@domain.com)
+[pradyotpatil@gmail.com](mailto:pradyotpatil@gmail.com)
