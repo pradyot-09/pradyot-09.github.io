@@ -1,0 +1,63 @@
+*{
+    font-family: 'Roboto', sans-serif !important;
+    
+}
+.graph{
+  text-align: center;
+  margin-top: 10px;
+  padding-top: 70px;
+  color: #fff ;
+}
+.container {
+    height: 80%;
+    width: 100% ;
+    margin-left: 20% ;
+    
+}
+
+
+
+body {
+    width: 100% ;
+    height: 100% ;
+  }
+
+  
+  #main {
+    float: left;
+    width: 750px;
+  }
+  
+  
+  #sequence {
+    width: 600px;
+    height: 70px;
+  }
+  
+  #sequence text, #legend text {
+    font-weight: 600;
+    fill: #fff;
+  }
+  
+  #chart {
+    position: relative;
+    margin-left: 60% ;
+  }
+  
+  #chart path {
+    stroke: #fff;
+  }
+  
+  #explanation {
+    position: absolute;
+    top: 260px;
+    left: 305px;
+    width: 140px;
+    text-align: center;
+    color: #da4f49;
+    z-index: -1;
+  }
+  
+  #percentage {
+    font-size: 2.5em;
+  }

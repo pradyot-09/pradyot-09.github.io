@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <!-- Group 14: Viz3 - > Top 50 regions with highest number of attacks and Causualties in these regions  -->
+  <meta http-equiv="content-type" content="text/html; charset=UTF8">
+  <title>Attacks</title>
+  <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+  <script src="https://d3js.org/d3.v4.js"></script>
+  <script src="https://d3js.org/d3-scale-chromatic.v1.min.js"></script>
+
+  <link rel="shortcut icon" type="image/x-icon" href="../assets/logo.png">
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Quicksand:300,400,500,700"
+  rel="stylesheet">
+  <link href="https://maxcdn.icons8.com/fonts/line-awesome/1.1/css/line-awesome.min.css"
+  rel="stylesheet">
+  <!-- BEGIN VENDOR CSS-->
+  <link rel="stylesheet" type="text/css" href="../app-assets/css/vendors.css">
+  <!-- END VENDOR CSS-->
+  
+  <!-- BEGIN MODERN CSS-->
+  <link rel="stylesheet" type="text/css" href="../app-assets/css/app.css">
+  <!-- END MODERN CSS-->
+  <!-- BEGIN Page Level CSS-->
+  <link rel="stylesheet" type="text/css" href="../app-assets/css/core/menu/menu-types/vertical-content-menu.css">
+  <link rel="stylesheet" type="text/css" href="../app-assets/css/core/colors/palette-gradient.css">
+  <link rel="stylesheet" type="text/css" href="../app-assets/fonts/simple-line-icons/style.min.css">
+  <!-- END Page Level CSS-->
+  <!-- BEGIN Custom CSS-->
+  <link rel="stylesheet" type="text/css" href="../hamburgers-master/dist/hamburgers.css">
+  <link rel="stylesheet" type="text/css" href="../assets/css/style.css">
+  <script type="text/javascript" src="http://code.jquery.com/jquery-1.4.2.min.js"></script>
+  <!-- Original Favicon -->
+  <link rel="apple-touch-icon" href="../app-assets/images/ico/apple-icon-120.png">
+  <link rel="shortcut icon" type="image/x-icon" href="../app-assets/images/ico/favicon.ico">
+
+
+
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Quicksand:300,400,500,700"
+  rel="stylesheet">
+  <link href="https://maxcdn.icons8.com/fonts/line-awesome/1.1/css/line-awesome.min.css"
+  rel="stylesheet">
+  <!-- BEGIN VENDOR CSS-->
+<script type="text/javascript" src="http://code.jquery.com/jquery-1.4.2.min.js"></script><!-- jquery link files -->
+
+  <style>
+      *{
+          font-family: 'Roboto', sans-serif !important;
+          
+      }
+      .graph{
+        margin-top: 70px;
+        color: #fff ;
+      }
+      .container {
+          height: 80%;
+          width: 100% ;
+          margin-left: 10% ;
+          
+      }
+      /* CSS for horizontal grid lines in graph */
+      .grid line {
+        stroke: lightgrey;
+        stroke-opacity: 0.7;
+        shape-rendering: crispEdges;
+      }
+      .bubbles {
+        stroke-width: 2px;
+        stroke: white;
+      }
+      .bubbles:hover {
+        stroke: black;
+      }
+  </style>
+</head>
+<body style="background:#252525">
+  <!-- NAVIGATION BAR -->
+  <nav class="header-navbar navbar-expand-md navbar navbar-with-menu navbar-without-dd-arrow fixed-top navbar-hide-on-scroll navbar-brand-center" style="background-color: #252525;box-shadow: 0px 2px 30px 2px rgba(0, 0, 0, 0.1);">
+    <div class="navbar-wrapper">
+      <div class="navbar-container content">
+        <div class="collapse navbar-collapse" id="navbar-mobile">
+  
+          <ul class="nav navbar-nav mr-auto float-left">
+            <li class="nav-item smallllll"> 
+              <a class="nav-link" href="../">   <img class="brand-logo" style="width:50px;height:40px;margin-left: 20px;" alt="InfoVis" src="../assets/logo.png">
+                
+              </a>
+            </li><br><h2 style="margin-top: 10px;color:#ff8000;font-size:xx-large;font-weight: 900;">InfoVis Project</h2>
+  
+          </ul>
+  
+          <ul class="nav navbar-nav float-right">    
+            <script type="text/javascript">
+            $(document).ready(function()
+            {
+  
+            $(".nav-link-all").on('mouseenter',function(){
+              $(this).css({"background-color":"#009bea","border-radius":"5px","box-shadow":"0px 1px 20px 1px rgba(30, 159, 242, 0.6)"});
+              $(this).children('span').css({"color":"#fff"});
+              $(this).children('.nav-icon-all').css({"color":"#fff"});
+            });
+  
+            $(".nav-link-all").on('mouseleave',function(){
+              $(this).css({"background-color":"transparent","box-shadow":"none"});
+              $(this).children('span').css({"color":"#009bea"});
+            $(this).children('.nav-icon-all').css({"color":"#009bea"});
+            });
+  
+            });
+            </script>
+            
+            <li class="dropdown dropdown-user nav-item commonmobile">
+              <a class="dropdown-toggle nav-link dropdown-user-link header-link nav-link-all" href="../index.html" style="padding-left: 15px;">
+                <span class="mr-1 nav-text" style="font-weight: 450;">Home 
+                </span>
+              </a>
+            </li>
+  
+            <!-- Workshop menu-->
+            <li class="dropdown dropdown-user nav-item commonmobile">
+              <a class="dropdown-toggle nav-link dropdown-user-link header-link nav-link-all" href="../vis1"  style="padding-left: 15px;">
+                <span class="mr-1 nav-text" style="font-weight: 450;">Visualization 1 
+                </span>
+              </a>
+            </li>
+  
+            <li class="dropdown dropdown-user nav-item commonmobile">
+              <a class="dropdown-toggle nav-link dropdown-user-link header-link nav-link-all" href="../vis2/"  style="padding-left: 15px;">
+                <span class="mr-1 nav-text" style="font-weight: 450;">Visualization 2
+                </span>
+              </a>
+            </li>
+  
+            
+            <li class="dropdown dropdown-user nav-item commonmobile">
+              <a class="dropdown-toggle nav-link dropdown-user-link header-link nav-link-all" href="../vis3/"  style="padding-left: 15px;">
+                <span class="mr-1 nav-text" style="font-weight: 450;">Visualization 3
+                </span>
+              </a>
+            </li>
+
+            <li class="dropdown dropdown-user nav-item commonmobile">
+              <a class="dropdown-toggle nav-link dropdown-user-link header-link " href="#"  style="padding-left: 15px;background-color: #009bea; border-radius: 5px; box-shadow: 0px 1px 20px 1px rgba(30, 159, 242, 0.6);">
+                <span class="mr-1 nav-text" style="font-weight: 450; color: #fff;">Visualization 4
+                </span>
+              </a>
+            </li>
+  
+            <li class="dropdown dropdown-user nav-item commonmobile">
+              <a class="dropdown-toggle nav-link dropdown-user-link header-link nav-link-all" href="../vis5/"  style="padding-left: 15px;">
+                <span class="mr-1 nav-text" style="font-weight: 450;">Visualization 5
+                </span>
+              </a>
+            </li>
+
+            <li class="dropdown dropdown-user nav-item commonmobile">
+              <a class="dropdown-toggle nav-link dropdown-user-link header-link nav-link-all" href="../vis6/"  style="padding-left: 15px;">
+                  <span class="mr-1 nav-text" style="font-weight: 450;">Visualization 6
+                  </span>
+              </a>
+            </li>
+
+          </ul>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+
+
+
+  <!-- END OF NAVIGATION BAR -->
+
+
+<div class="graph">
+  
+  <h2 style="color:#FFFF00;text-align:center">Number of Attacks(Top 50) and Causalties within each region since 1970</h2>
+  <p style="color:#aaaaaa;text-align:center">
+    Hover over bubbles for info | Size of bubble indicates causalties (killed+wounded)
+  </p>
+  <div class="container" id="my_dataviz"></div>
+  <h4 style="color:#FFFF00;text-align:center">Number of Attacks</h2>
+</div>
+<script>
+
+    // set the dimensions and margins of the graph
+    var margin = {top: 10, right: 20, bottom: 30, left: 300},
+        width = 1200 - margin.left - margin.right,
+        height = 620 - margin.top - margin.bottom;
+    
+    // append the svg object to the my_dataviz div of the page
+    var svg = d3.select("#my_dataviz")
+      .append("svg")
+        .attr("width", width + margin.left + margin.right)
+        .attr("height", height + margin.top + margin.bottom)
+      .append("g")
+        .attr("transform",
+              "translate(" + margin.left + "," + margin.top + ")");
+    
+    
+    
+    //Read the data fron  csv obtained from pre processing
+    d3.csv("vis3.csv", function(data) {
+      
+      // gridlines in y axis function
+      function make_y_gridlines() {		
+            return d3.axisLeft(y)
+                .ticks(5)
+      }
+
+      // gridlines in x axis function
+      function make_x_gridlines() {		
+            return d3.axisBottom(x)
+                .ticks(5)
+      }
+
+
+      // Add X axis
+      var x = d3.scaleLinear()
+        .domain([0, 30000])
+        .range([ 0, width ]);
+      svg.append("g")
+        .attr("transform", "translate(0," + height + ")")
+        .call(d3.axisBottom(x))
+        .style('fill', 'darkOrange') //color of axis
+        .selectAll("text")
+        .style('fill', 'darkOrange') //color of text on axis
+        .style('font-size','10px');;
+        
+     
+      // Add Y axis and the domain
+      var y = d3.scaleBand()
+        .domain(['Central America & Caribbean','North America','Southeast Asia','Western Europe','South America','Eastern Europe','Sub-Saharan Africa','Middle East & North Africa','South Asia'])
+        .range([ height, 0])
+        .padding([0.8]) ;
+      
+      // draw the hoizontal grid lines  
+      svg.append("g")			
+      .attr("class", "grid")
+      .call(make_y_gridlines()
+          .tickSize(-width)
+          .tickFormat("")
+      )  
+      svg.append("g")
+        .call(d3.axisLeft(y))
+        .style('fill', 'darkOrange');// color the y axis
+      
+        svg.append("g")
+        .call(d3.axisLeft(y))
+        .selectAll("text")
+        .style('fill', 'darkOrange') //color of text on yaxis
+        .style('font-size','20px');  
+      
+        // Add a scale for bubble size
+      var z = d3.scaleLinear()
+        .domain([5, 250000])
+        .range([ 10, 60]);
+    
+      // Add a scale for bubble color
+      var myColor = d3.scaleOrdinal()
+        .domain(['0','Central America & Caribbean','North America','Southeast Asia','Western Europe','East Asia','South America','Eastern Europe','Sub-Saharan Africa','Middle East & North Africa','Australasia & Oceania','South Asia','Central Asia'])
+        .range(d3.schemeCategory20);
+    
+      // Credits: d3js.org Simpple bubble chart template for the tooltip component
+      // -1- Create a tooltip div that is hidden by default:
+      var tooltip = d3.select("#my_dataviz")
+        .append("div")
+        .style("margin-left","20%")
+        .style("margin-top","3%")
+        .style("opacity", 0)
+        .attr("class", "tooltip")
+        .style("background-color", "black")
+        .style("border-radius", "5px")
+        .style("padding", "10px")
+        .style("color", "white")
+    
+      // -2- Create 3 functions to show / update (when mouse move but stay on same circle) / hide the tooltip
+      var showTooltip = function(d) {
+        tooltip
+          .transition()
+          .duration(200)
+        tooltip
+          .style("opacity", 1)
+          .html("Country: " + d.Country+ "<br>Causalties:" + d.Total)
+          .style("left", (d3.mouse(this)[0]+30) + "px")
+          .style("top", (d3.mouse(this)[1]+30) + "px")
+      }
+      var moveTooltip = function(d) {
+        tooltip
+          .style("left", (d3.mouse(this)[0]+30) + "px")
+          .style("top", (d3.mouse(this)[1]+30) + "px")
+      }
+      var hideTooltip = function(d) {
+        tooltip
+          .transition()
+          .duration(200)
+          .style("opacity", 0)
+      }
+    
+      // Add dots
+      svg.append('g')
+        .selectAll("dot")
+        .data(data)
+        .enter()
+        .append("circle")
+          .attr("class", "bubbles")
+          .attr("cx", function (d) { return x(d.Count); } )
+          .attr("cy", function (d) { return y(d.Region); } )
+          .attr("r", function (d) { return z(d.Total); } )
+          .style("fill", function (d) { return myColor(d.Region); } )
+        // -3- Trigger the functions
+        .on("mouseover", showTooltip )
+        .on("mousemove", moveTooltip )
+        .on("mouseleave", hideTooltip )
+    
+      })
+      
+    </script>
+  <!-- BEGIN VENDOR JS-->
+  <script src="../app-assets/vendors/js/vendors.min.js" type="text/javascript"></script>
+  <!-- BEGIN VENDOR JS-->
+
+</body>
+</html>

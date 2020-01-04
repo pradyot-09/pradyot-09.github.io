@@ -1,0 +1,509 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <!-- Group 14: Viz5 - > Visualization of attacks by various groups over the world since 1970  -->
+  <!-- Credits to Dean Attali (http://rpubs.com/daattali/statsTerrorismProject) analysis on data for the visualization idea on world map.
+      This visualization is built on top of it with interactive touch -->
+  <meta http-equiv="content-type" content="text/html; charset=UTF8">
+  <title>World Map of Terror</title>
+  <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+  <!-- Load the location data script of attacks -->
+  <script src = "location_data.js"></script>
+  <link href="//cdnjs.cloudflare.com/ajax/libs/normalize/3.0.1/normalize.min.css" rel="stylesheet" data-semver="3.0.1" data-require="normalize@*" />
+  
+  <link rel="shortcut icon" type="image/x-icon" href="../assets/logo.png">
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Quicksand:300,400,500,700"
+  rel="stylesheet">
+  <link href="https://maxcdn.icons8.com/fonts/line-awesome/1.1/css/line-awesome.min.css"
+  rel="stylesheet">
+  <!-- BEGIN VENDOR CSS-->
+  <link rel="stylesheet" type="text/css" href="../app-assets/css/vendors.css">
+  <!-- END VENDOR CSS-->
+  
+  <!-- BEGIN MODERN CSS-->
+  <link rel="stylesheet" type="text/css" href="../app-assets/css/app.css">
+  <!-- END MODERN CSS-->
+  <!-- BEGIN Page Level CSS-->
+  <link rel="stylesheet" type="text/css" href="../app-assets/css/core/menu/menu-types/vertical-content-menu.css">
+  <link rel="stylesheet" type="text/css" href="../app-assets/css/core/colors/palette-gradient.css">
+  <link rel="stylesheet" type="text/css" href="../app-assets/fonts/simple-line-icons/style.min.css">
+  <!-- END Page Level CSS-->
+  <!-- BEGIN Custom CSS-->
+  <link rel="stylesheet" type="text/css" href="../hamburgers-master/dist/hamburgers.css">
+  <link rel="stylesheet" type="text/css" href="../assets/css/style.css">
+  <script type="text/javascript" src="http://code.jquery.com/jquery-1.4.2.min.js"></script>
+  <!-- Original Favicon -->
+  <link rel="apple-touch-icon" href="../app-assets/images/ico/apple-icon-120.png">
+  <link rel="shortcut icon" type="image/x-icon" href="../app-assets/images/ico/favicon.ico">
+
+
+
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Quicksand:300,400,500,700"
+  rel="stylesheet">
+  <link href="https://maxcdn.icons8.com/fonts/line-awesome/1.1/css/line-awesome.min.css"
+  rel="stylesheet">
+  <!-- BEGIN VENDOR CSS-->
+<script type="text/javascript" src="http://code.jquery.com/jquery-1.4.2.min.js"></script><!-- jquery link files -->
+<script src="d3.v3.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/topojson/1.6.9/topojson.min.js"></script>
+<!-- add the world map; Credits to d3js.org for world map template -->
+<script src="datamaps.world.min.js"></script>
+  <style>
+    *{
+          font-family: 'Roboto', sans-serif !important;
+      }
+      
+    .graph{
+      margin-top: 10px;
+      margin-right: 10%;
+      color: #000 ;
+      text-align: right;
+    }
+    
+    
+    #container{
+      margin-right: -100px ;
+    }
+    #terrorgroups {
+      margin-top:40px ;
+    }
+    #chart {
+      height: 360px;
+      position: relative;
+      width: 360px;
+      margin-right: 70%; 
+      margin-top: -500px;
+    }
+    #chart, #container
+    {
+        display:inline;
+    }
+    .tooltip {
+      background: #eee;
+      box-shadow: 0 0 5px #999999;
+      color: #333;
+      display: none;
+      font-size: 12px;
+      left: 130px;
+      padding: 10px;
+      position: absolute;
+      text-align: center;
+      top: 95px;
+      width: 80px;
+      z-index: 10;
+    }
+    .legend {
+      font-size: 12px;
+    }
+    rect {
+      stroke-width: 2;
+    }
+  </style>
+
+</head>
+
+<body style="background:#252525">
+  <!-- Nav Bar -->
+  <nav class="header-navbar navbar-expand-md navbar navbar-with-menu navbar-without-dd-arrow fixed-top navbar-hide-on-scroll navbar-brand-center" style="background-color: #252525;box-shadow: 0px 2px 30px 2px rgba(0, 0, 0, 0.1);">
+    <div class="navbar-wrapper">
+      <div class="navbar-container content">
+        <div class="collapse navbar-collapse" id="navbar-mobile">
+  
+          <ul class="nav navbar-nav mr-auto float-left">
+            <li class="nav-item smallllll"> 
+              <a class="nav-link" href="../">   <img class="brand-logo" style="width:50px;height:40px;margin-left: 20px;" alt="InfoVis" src="../assets/logo.png">
+                
+              </a>
+            </li><br><h2 style="margin-top: 10px;color:#ff8000;font-size:xx-large;font-weight: 900;">InfoVis Project</h2>
+  
+          </ul>
+  
+          <ul class="nav navbar-nav float-right">    
+            <script type="text/javascript">
+            $(document).ready(function()
+            {
+  
+            $(".nav-link-all").on('mouseenter',function(){
+              $(this).css({"background-color":"#009bea","border-radius":"5px","box-shadow":"0px 1px 20px 1px rgba(30, 159, 242, 0.6)"});
+              $(this).children('span').css({"color":"#fff"});
+              $(this).children('.nav-icon-all').css({"color":"#fff"});
+            });
+  
+            $(".nav-link-all").on('mouseleave',function(){
+              $(this).css({"background-color":"transparent","box-shadow":"none"});
+              $(this).children('span').css({"color":"#009bea"});
+            $(this).children('.nav-icon-all').css({"color":"#009bea"});
+            });
+  
+            });
+            </script>
+            
+            <li class="dropdown dropdown-user nav-item commonmobile">
+              <a class="dropdown-toggle nav-link dropdown-user-link header-link nav-link-all" href="../index.html" style="padding-left: 15px;">
+                <span class="mr-1 nav-text" style="font-weight: 450;">Home 
+                </span>
+              </a>
+            </li>
+  
+            <!-- Workshop menu-->
+            <li class="dropdown dropdown-user nav-item commonmobile">
+              <a class="dropdown-toggle nav-link dropdown-user-link header-link nav-link-all" href="../vis1/"  style="padding-left: 15px;">
+                <span class="mr-1 nav-text" style="font-weight: 450;">Visualization 1 
+                </span>
+              </a>
+            </li>
+  
+            <li class="dropdown dropdown-user nav-item commonmobile">
+              <a class="dropdown-toggle nav-link dropdown-user-link header-link nav-link-all " href="../vis2/"  style="padding-left: 15px;">
+                <span class="mr-1 nav-text" style="font-weight: 450;">Visualization 2
+                </span>
+              </a>
+            </li>
+  
+            <li class="dropdown dropdown-user nav-item commonmobile">
+              <a class="dropdown-toggle nav-link dropdown-user-link header-link nav-link-all" href="../vis3/"  style="padding-left: 15px;">
+                <span class="mr-1 nav-text" style="font-weight: 450;">Visualization 3
+                </span>
+              </a>
+            </li>
+            
+            <li class="dropdown dropdown-user nav-item commonmobile">
+                <a class="dropdown-toggle nav-link dropdown-user-link header-link nav-link-all" href="../vis4/"  style="padding-left: 15px;">
+                    <span class="mr-1 nav-text" style="font-weight: 450;">Visualization 4
+                    </span>
+                </a>
+            </li>
+    
+            <li class="dropdown dropdown-user nav-item commonmobile">
+              <a class="dropdown-toggle nav-link dropdown-user-link header-link nav-link-all" href="../vis5/"  style="padding-left: 15px;">
+                  <span class="mr-1 nav-text" style="font-weight: 450;">Visualization 5
+                  </span>
+              </a>
+            </li>
+            
+            
+            <li class="dropdown dropdown-user nav-item commonmobile">
+                <a class="dropdown-toggle nav-link dropdown-user-link header-link " href="#"  style="padding-left: 15px;background-color: #009bea; border-radius: 5px; box-shadow: 0px 1px 20px 1px rgba(30, 159, 242, 0.6);">
+                    <span class="mr-1 nav-text" style="font-weight: 450;color: #fff;">Visualization 6
+                    </span>
+                </a>
+            </li>
+
+            
+          </ul>
+        </div>
+      </div>
+    </div>
+  </nav>
+  <!-- Nav Bar end -->
+  <h2 style="color:#FFFF00;text-align: center; margin-top: 70px;">Terrorist Attacks by various groups in World since 1970</h2>
+  <p style="color:#aaaaaa;text-align:center">
+    Click on the terrorist group to filter | Click on the piechart to filter type of attack | hover over the bubble for info
+  </p>
+  <div id="terrorgroups" style="padding:5px; margin-right:-100px;"></div>
+  <div class="graph">
+    
+    
+    <div style="width:100%;height:600px;" >
+      <div id="container" style="position: relative; width: 70%; height: 600px;display:inline-block" onclick="plotmap();"></div>
+      <div style="position:absolute;left:4%;top:40%;color:#666666;font-weight:bold;font-size:20px;" onclick="plotmap();"><span>Preferred attack types of </span><span id="currentGroup" style="color:#da4f49"></span></div>
+      <div style="position:absolute;left:10%;top:50%;color:#da4f49;font-weight:bold;" id="mapfilter"></div>
+      
+      <div id="chart" style="display:inline-block;"><span>Preferred attack types of </span>
+        
+      </div>
+
+
+    </div>
+    
+  </div>
+<script>
+
+// List of terrorist groups
+var groups =['Unknown', 'Separatists', 'Muslim extremists', 'Gunmen',
+       'Jihadi-inspired extremists', 'Students', 'Right-wing extremists',
+       'Guerrillas', 'Left-wing extremists',
+       'Anti-Government extremists', 'Anti-Government Group', 'Rebels',
+       'Right-Wing Group', 'Islamist extremists'];
+
+window.currentGroup = groups[1];
+
+// initialize buttons for terror groups 
+for(var i =1;i<groups.length;i++)
+{
+    var gp = document.createElement('span');
+    gp.style.padding = "10px";
+    gp.style.background = "#666666";
+    gp.style.margin="2px";
+    gp.style.color="#000";
+    gp.style.borderRadius = "2px";
+    gp.style.cursor = "pointer";
+    gp.innerHTML = ""+groups[i]+"";
+    gp.style.fontSize = "x-small";
+    gp.classList.add('terrorgroup');
+    gp.attributes.group = groups[i];
+    (function(ilocal){
+    gp.onclick = function(){
+        window.currentGroup = groups[ilocal];
+        plotmap();
+        updateColor();
+        pierefresh();
+    }
+    })(i);
+    document.getElementById('terrorgroups').appendChild(gp);
+}
+
+
+// update color of selected group
+function updateColor()
+{
+    allElements = document.getElementsByClassName('terrorgroup');
+    for(var a =0;a<allElements.length;a++)
+    {
+        element = allElements[a];
+        if(currentGroup!=element.attributes.group)
+        {
+            element.style.background = "#666666";
+        }
+        else
+        {
+            element.style.background = "#00FFFF";
+        }
+    }
+
+    document.getElementById("currentGroup").innerHTML = ""+ window.currentGroup;
+}
+updateColor();
+// plot worldmap
+window.plotmap = function(type){
+    document.getElementById("container").innerHTML = "";
+    var bubble_map = new Datamap({
+      element: document.getElementById("container"),
+      geographyConfig: {
+        popupOnHover: true,
+        highlightOnHover: true,
+        highlightFillColor:'darkOrange'
+      },
+      fills: {
+        defaultFill: '#666666',
+        USA: 'blue',
+        RUS: 'red',
+        ONE:'red',
+        TWO:'red',
+        THREE:'red',
+        FOUR:'red',
+        FIVE:'grey',
+        SIX:'red'
+      }
+    });
+    
+    //Plot the bubble based on coordinates from location_data js 
+    if(type)
+    {
+        plotdata = [];
+        for(var z=0;z<bubble_data_global[window.currentGroup].length;z++)
+        {
+            if(bubble_data_global[window.currentGroup][z]['type'] == type)
+            {
+                plotdata.push(bubble_data_global[window.currentGroup][z]);
+            }
+        }
+        document.getElementById('mapfilter').innerHTML = "FILTER : "+type;
+    }
+    else
+    {
+        plotdata = bubble_data_global[window.currentGroup];
+        document.getElementById('mapfilter').innerHTML = "";
+    }
+    // Hover tooltip info
+    bubble_map.bubbles(plotdata, {
+      popupTemplate: function(geo, data) {
+        return '<div class="hoverinfo">' +"city: "+ data["city"] + "," +data["type"] + ' by ' + window.currentGroup + ' in '+data['y']+'</div>';
+      }
+    });
+}
+// Plot the worldmap. Credits: datampas.world.js is adopted from https://datamaps.github.io/
+plotmap();
+
+</script>
+
+
+<script>
+
+
+// Update the piechart
+function pierefresh()
+{
+        var temp = document.getElementById('chart');
+        if(temp)
+        {
+            temp.innerHTML = "";
+        }
+
+        var dataset = [];
+        //Load the attack types for pie chart
+        var attacktypes = ["Armed Assault","Assassination","Bombing/Explosion",
+        "Facility/Infrastructure Attack","Hijacking","Hostage Taking (Barricade Incident)",
+        "Hostage Taking (Kidnapping)","Unarmed Assault","Unknown"];
+        var corrlabels = ["Assault","Assassination","Bombing",
+        "Facility","Hijacking","Hostage","Kidnapping","Unarmed","Unknown"];
+        for(var ij = 0;ij<attacktypes.length;ij++)
+        {
+            var t = {};
+            t['label'] = ""+corrlabels[ij];
+            t['count'] = 0;
+            t['data'] = ""+attacktypes[ij];
+            //t['color'] = colorsavailable[Math.floor(Math.random() * colorsavailable.length)];
+            dataset.push(t);
+        }
+        
+        //Load only the bubbles with selected filter on type of attack
+        for(var kl = 0;kl<bubble_data_global[window.currentGroup].length;kl++)
+        {
+            for(var ij = 0;ij<dataset.length;ij++)
+            {
+                if(bubble_data_global[window.currentGroup][kl]['type'] == dataset[ij]['data'])
+                {
+                    dataset[ij]['count'] ++;
+                }
+            }
+        }
+        var ddd = [];
+        for(var ij = 0;ij<dataset.length;ij++)
+        {
+            if(dataset[ij]['count']<=0)
+            {
+
+            }
+            else
+            {
+            ddd.push(dataset[ij]);
+            }
+        }
+
+        var data = ddd;
+
+
+
+        var width = 360;
+        var height = 360;
+        var radius = Math.min(width, height) / 2;
+        var donutWidth = 75;
+        var legendRectSize = 18;
+        var legendSpacing = 4;
+        
+        //get color scheme
+        var color = d3.scale.category20c();
+
+        var svg = d3.select('#chart')
+          .append('svg')
+          .attr('width', width)
+          .attr('height', height)
+          .append('g')
+          .attr('transform', 'translate(' + (width / 2) +
+            ',' + (height / 2) + ')');
+
+        //Piechar rect circles (arcs)
+        var arc = d3.svg.arc()
+          .innerRadius(radius - donutWidth)
+          .outerRadius(radius);
+
+        //Number of arcs
+        var pie = d3.layout.pie()
+          .value(function(d) { return d.count; })
+          .sort(null);
+        
+        // attach tooltips
+        var tooltip = d3.select('#chart')
+          .append('div')
+          .attr('class', 'tooltip');
+
+        tooltip.append('div')
+          .attr('class', 'label');
+
+        tooltip.append('div')
+          .attr('class', 'count');
+
+        tooltip.append('div')
+          .attr('class', 'percent');
+
+
+        dataset = data;
+          dataset.forEach(function(d) {
+            d.count = +d.count;
+          });
+
+          //create piechart with the dataset
+          var path = svg.selectAll('path')
+            .data(pie(dataset))
+            .enter()
+            .append('path')
+            .attr('d', arc)
+            .attr('fill', function(d, i) {
+              return color(d.data.label);
+            });
+
+          path.on('mouseover', function(d) {
+            var total = d3.sum(dataset.map(function(d) {
+              return d.count;
+            }));
+
+            //Calculate the arc lengths
+            var percent = Math.round(1000 * d.data.count / total) / 10;
+            tooltip.select('.label').html(d.data.label);
+            tooltip.select('.count').html(d.data.count);
+            tooltip.select('.percent').html(percent + '%');
+            tooltip.style('display', 'block');
+          });
+          path.on('click',function(d){
+             plotmap(d['data']['data']);
+          });
+
+          path.on('mouseout', function() {
+            tooltip.style('display', 'none');
+          });
+
+          
+          // build the legend in the center of the piechart
+          var legend = svg.selectAll('.legend')
+            .data(color.domain())
+            .enter()
+            .append('g')
+            .attr('class', 'legend')
+            .attr('transform', function(d, i) {
+              var height = legendRectSize + legendSpacing;
+              var offset =  height * color.domain().length / 2;
+              var horz = -2 * legendRectSize;
+              var vert = i * height - offset;
+              return 'translate(' + horz + ',' + vert + ')';
+            })
+            .style("fill","#fff");
+
+          legend.on('click',function(d){
+            plotmap();
+          });
+
+          legend.append('rect')
+            .attr('width', legendRectSize)
+            .attr('height', legendRectSize)
+            .style('fill', color)
+            .style('stroke', color);
+          
+          //add text to the legends
+          legend.append('text')
+            .attr('x', legendRectSize + legendSpacing)
+            .attr('y', legendRectSize - legendSpacing)
+            .text(function(d) { return d; });
+
+
+}
+//onclick referesh
+pierefresh();
+</script>
+
+
+<!-- BEGIN VENDOR JS-->
+<script src="../app-assets/vendors/js/vendors.min.js" type="text/javascript"></script>
+<!-- BEGIN VENDOR JS-->
+</body>
+</html>

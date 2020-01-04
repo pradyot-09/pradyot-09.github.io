@@ -1,0 +1,491 @@
+year,country,count
+1970,United States,468
+1970,Uruguay,33
+1970,Argentina,21
+1970,West Germany (FRG),20
+1970,East Germany (GDR),12
+1970,Turkey,12
+1970,United Kingdom,12
+1970,Philippines,10
+1970,Jordan,9
+1970,Brazil,6
+1971,United States,247
+1971,United Kingdom,81
+1971,Turkey,35
+1971,Spain,22
+1971,West Germany (FRG),13
+1971,Iran,11
+1971,Uruguay,8
+1971,Argentina,7
+1971,Jordan,5
+1971,East Germany (GDR),4
+1972,United Kingdom,292
+1972,United States,68
+1972,West Germany (FRG),24
+1972,Argentina,20
+1972,Spain,19
+1972,Iran,15
+1972,Israel,15
+1972,France,11
+1972,Turkey,9
+1972,Australia,8
+1973,United Kingdom,189
+1973,Argentina,60
+1973,United States,58
+1973,West Germany (FRG),27
+1973,Spain,21
+1973,Italy,15
+1973,France,14
+1973,Greece,11
+1973,Lebanon,11
+1973,Chile,7
+1974,United Kingdom,203
+1974,United States,94
+1974,Argentina,71
+1974,France,29
+1974,West Germany (FRG),28
+1974,Italy,22
+1974,Mexico,16
+1974,Spain,14
+1974,Israel,12
+1974,Iran,11
+1975,United Kingdom,194
+1975,United States,149
+1975,Spain,136
+1975,France,39
+1975,Argentina,38
+1975,West Germany (FRG),35
+1975,Lebanon,15
+1975,Iran,13
+1975,Japan,12
+1975,Colombia,10
+1976,United Kingdom,194
+1976,Italy,173
+1976,United States,105
+1976,France,58
+1976,Argentina,54
+1976,Spain,50
+1976,West Germany (FRG),50
+1976,Turkey,35
+1976,Colombia,22
+1976,Greece,21
+1977,Italy,308
+1977,Turkey,189
+1977,Spain,147
+1977,United Kingdom,140
+1977,United States,130
+1977,Colombia,80
+1977,France,53
+1977,Greece,47
+1977,West Germany (FRG),40
+1977,Mexico,19
+1978,Italy,277
+1978,Spain,209
+1978,Colombia,158
+1978,United Kingdom,100
+1978,El Salvador,91
+1978,United States,87
+1978,Nicaragua,76
+1978,France,59
+1978,Turkey,52
+1978,Greece,39
+1979,El Salvador,326
+1979,Spain,279
+1979,United Kingdom,239
+1979,France,212
+1979,Italy,209
+1979,Nicaragua,206
+1979,Turkey,141
+1979,Colombia,140
+1979,Israel,129
+1979,Iran,82
+1980,El Salvador,710
+1980,Guatemala,281
+1980,Spain,187
+1980,Colombia,141
+1980,United Kingdom,134
+1980,Italy,110
+1980,Turkey,95
+1980,France,94
+1980,Lebanon,86
+1980,Israel,77
+1981,El Salvador,664
+1981,Guatemala,399
+1981,Colombia,172
+1981,Peru,149
+1981,United Kingdom,142
+1981,Iran,108
+1981,Spain,107
+1981,Lebanon,81
+1981,United States,74
+1981,Italy,69
+1982,El Salvador,537
+1982,Guatemala,354
+1982,Peru,350
+1982,Colombia,222
+1982,Spain,146
+1982,Lebanon,120
+1982,United Kingdom,95
+1982,United States,78
+1982,Nicaragua,63
+1982,France,62
+1983,Peru,536
+1983,El Salvador,371
+1983,Nicaragua,299
+1983,Colombia,234
+1983,Lebanon,234
+1983,United Kingdom,177
+1983,Spain,122
+1983,France,121
+1983,Guatemala,117
+1983,Chile,106
+1984,Peru,592
+1984,Chile,563
+1984,Nicaragua,302
+1984,El Salvador,273
+1984,Colombia,237
+1984,Lebanon,166
+1984,India,159
+1984,France,145
+1984,United Kingdom,145
+1984,Spain,143
+1985,El Salvador,436
+1985,Colombia,382
+1985,Peru,352
+1985,Nicaragua,258
+1985,Chile,232
+1985,Philippines,124
+1985,Spain,114
+1985,Sri Lanka,110
+1985,France,106
+1985,South Africa,106
+1986,Peru,568
+1986,Colombia,307
+1986,Chile,243
+1986,El Salvador,175
+1986,Nicaragua,171
+1986,South Africa,159
+1986,Sri Lanka,142
+1986,Spain,125
+1986,Lebanon,106
+1986,India,96
+1987,Peru,627
+1987,Colombia,337
+1987,El Salvador,234
+1987,Nicaragua,223
+1987,Chile,173
+1987,India,166
+1987,Philippines,160
+1987,South Africa,133
+1987,United Kingdom,117
+1987,Sri Lanka,115
+1988,Colombia,427
+1988,El Salvador,367
+1988,India,358
+1988,Peru,355
+1988,Sri Lanka,350
+1988,South Africa,245
+1988,Philippines,210
+1988,Chile,185
+1988,United Kingdom,180
+1988,Spain,151
+1989,Peru,630
+1989,Sri Lanka,510
+1989,Colombia,492
+1989,El Salvador,356
+1989,India,324
+1989,United Kingdom,163
+1989,Philippines,156
+1989,South Africa,149
+1989,Chile,146
+1989,Spain,142
+1990,Peru,495
+1990,Colombia,349
+1990,India,349
+1990,Philippines,320
+1990,Angola,205
+1990,Turkey,195
+1990,El Salvador,184
+1990,Chile,161
+1990,South Africa,154
+1990,United Kingdom,147
+1991,Peru,658
+1991,El Salvador,500
+1991,Colombia,420
+1991,India,339
+1991,Turkey,293
+1991,United Kingdom,262
+1991,Philippines,162
+1991,Pakistan,150
+1991,France,137
+1991,Chile,127
+1992,Colombia,523
+1992,Turkey,514
+1992,Peru,383
+1992,United Kingdom,274
+1992,South Africa,271
+1992,India,237
+1992,Algeria,215
+1992,Philippines,162
+1992,Germany,156
+1992,West Bank and Gaza Strip,139
+1993,United Kingdom,129
+1993,Egypt,49
+1993,India,42
+1993,Peru,42
+1993,Germany,37
+1993,United States,37
+1993,Lebanon,36
+1993,West Bank and Gaza Strip,36
+1993,Cambodia,33
+1993,Turkey,29
+1994,Turkey,300
+1994,United Kingdom,256
+1994,Algeria,227
+1994,Colombia,201
+1994,West Bank and Gaza Strip,179
+1994,South Africa,174
+1994,Pakistan,154
+1994,Egypt,143
+1994,India,107
+1994,France,97
+1995,Pakistan,666
+1995,Algeria,185
+1995,India,179
+1995,Germany,147
+1995,Turkey,133
+1995,Sri Lanka,126
+1995,Colombia,123
+1995,Egypt,102
+1995,Burundi,83
+1995,Guatemala,82
+1996,Colombia,409
+1996,France,270
+1996,India,213
+1996,Pakistan,180
+1996,Sri Lanka,176
+1996,Bangladesh,161
+1996,Algeria,129
+1996,Mexico,75
+1996,Russia,66
+1996,Indonesia,65
+1997,Colombia,598
+1997,Algeria,344
+1997,Pakistan,206
+1997,India,193
+1997,France,130
+1997,Mexico,95
+1997,Spain,86
+1997,Burundi,79
+1997,United Kingdom,78
+1997,Russia,77
+1998,Algeria,151
+1998,Colombia,94
+1998,United Kingdom,63
+1998,India,61
+1998,Yugoslavia,46
+1998,Pakistan,37
+1998,Sri Lanka,35
+1998,United States,31
+1998,Greece,28
+1998,Russia,26
+1999,Colombia,116
+1999,India,112
+1999,Turkey,109
+1999,Algeria,106
+1999,United Kingdom,76
+1999,Indonesia,60
+1999,Russia,54
+1999,United States,53
+1999,Spain,47
+1999,France,46
+2000,India,180
+2000,Algeria,138
+2000,Russia,138
+2000,Colombia,137
+2000,Philippines,132
+2000,Spain,112
+2000,Indonesia,101
+2000,Sri Lanka,68
+2000,United Kingdom,61
+2000,Kosovo,60
+2001,India,234
+2001,Colombia,207
+2001,Russia,135
+2001,West Bank and Gaza Strip,132
+2001,Algeria,113
+2001,Indonesia,106
+2001,United Kingdom,94
+2001,Spain,79
+2001,Israel,70
+2001,Macedonia,67
+2002,India,184
+2002,Colombia,150
+2002,Algeria,132
+2002,Russia,89
+2002,West Bank and Gaza Strip,89
+2002,Israel,72
+2002,Nepal,58
+2002,Philippines,48
+2002,Pakistan,46
+2002,Indonesia,43
+2003,India,196
+2003,Philippines,107
+2003,Iraq,102
+2003,Afghanistan,100
+2003,Colombia,98
+2003,Russia,76
+2003,Algeria,75
+2003,West Bank and Gaza Strip,49
+2003,France,34
+2003,Israel,34
+2004,Iraq,323
+2004,India,108
+2004,Afghanistan,88
+2004,Algeria,67
+2004,Pakistan,67
+2004,Nepal,62
+2004,Russia,44
+2004,Thailand,44
+2004,Colombia,37
+2004,West Bank and Gaza Strip,35
+2005,Iraq,617
+2005,Afghanistan,155
+2005,Thailand,155
+2005,India,146
+2005,Sri Lanka,133
+2005,Algeria,104
+2005,Pakistan,77
+2005,Nepal,70
+2005,Russia,64
+2005,West Bank and Gaza Strip,53
+2006,Iraq,837
+2006,Afghanistan,283
+2006,Sri Lanka,217
+2006,Thailand,202
+2006,India,167
+2006,Pakistan,164
+2006,Algeria,152
+2006,Nepal,83
+2006,Israel,79
+2006,Philippines,58
+2007,Iraq,1046
+2007,Afghanistan,342
+2007,Thailand,293
+2007,Pakistan,260
+2007,Somalia,156
+2007,India,149
+2007,Sri Lanka,132
+2007,Algeria,124
+2007,West Bank and Gaza Strip,92
+2007,Nepal,90
+2008,Iraq,1106
+2008,Pakistan,568
+2008,India,534
+2008,Afghanistan,414
+2008,Philippines,276
+2008,Thailand,200
+2008,Somalia,172
+2008,Russia,170
+2008,Colombia,133
+2008,Israel,129
+2009,Iraq,1137
+2009,India,672
+2009,Pakistan,667
+2009,Afghanistan,503
+2009,Thailand,298
+2009,Philippines,229
+2009,Russia,152
+2009,Colombia,139
+2009,Somalia,122
+2009,Greece,115
+2010,Iraq,1179
+2010,Pakistan,713
+2010,India,663
+2010,Afghanistan,542
+2010,Thailand,253
+2010,Russia,251
+2010,Philippines,205
+2010,Colombia,136
+2010,Somalia,130
+2010,Yemen,112
+2011,Iraq,1308
+2011,Pakistan,1012
+2011,India,645
+2011,Afghanistan,421
+2011,Russia,188
+2011,Somalia,185
+2011,Thailand,182
+2011,Nigeria,175
+2011,Philippines,151
+2011,Yemen,118
+2012,Pakistan,1654
+2012,Afghanistan,1469
+2012,Iraq,1437
+2012,Nigeria,616
+2012,India,613
+2012,Somalia,325
+2012,Yemen,312
+2012,Thailand,280
+2012,Philippines,249
+2012,Turkey,188
+2013,Iraq,2852
+2013,Pakistan,2214
+2013,Afghanistan,1443
+2013,India,694
+2013,Philippines,651
+2013,Thailand,472
+2013,Yemen,425
+2013,Nigeria,347
+2013,Somalia,342
+2013,Egypt,321
+2014,Iraq,3934
+2014,Pakistan,2151
+2014,Afghanistan,1824
+2014,Ukraine,895
+2014,Somalia,872
+2014,India,860
+2014,Yemen,763
+2014,Libya,729
+2014,Nigeria,714
+2014,Philippines,597
+2015,Iraq,2751
+2015,Afghanistan,1928
+2015,Pakistan,1243
+2015,India,885
+2015,Philippines,721
+2015,Yemen,664
+2015,Egypt,647
+2015,Nigeria,639
+2015,Ukraine,638
+2015,Libya,543
+2016,Iraq,3383
+2016,Afghanistan,1617
+2016,India,1026
+2016,Pakistan,864
+2016,Philippines,632
+2016,Somalia,602
+2016,Turkey,544
+2016,Nigeria,534
+2016,Yemen,525
+2016,Syria,473
+2017,Iraq,2503
+2017,Afghanistan,1414
+2017,India,967
+2017,Pakistan,719
+2017,Philippines,692
+2017,Somalia,615
+2017,Nigeria,485
+2017,Syria,248
+2017,Nepal,247
+2017,Yemen,227
+2018,Afghanistan,1776
+2018,Iraq,1362
+2018,India,888
+2018,Nigeria,645
+2018,Philippines,601
+2018,Somalia,527
+2018,Pakistan,480
+2018,Yemen,325
+2018,Cameroon,235
+2018,Syria,232
