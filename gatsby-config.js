@@ -5,9 +5,9 @@ module.exports = {
     title: 'Pradyot Patil',
     description:
       'Pradyot Patil is a Computer Science student specializing in data science. He is interested in data analytics, AI/ML, Software development, software analyticsand everything in between.',
-    siteUrl: 'https://brittanychiang.com', // No trailing slash allowed!
+    siteUrl: 'https://pradyot-09.github.io', // No trailing slash allowed!
     image: '/og.png', // Path to your image you placed in the 'static' folder
-    twitterUsername: '@bchiang7',
+    twitterUsername: '@paddichaddi',
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
